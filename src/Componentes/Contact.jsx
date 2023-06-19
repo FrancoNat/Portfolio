@@ -54,14 +54,14 @@ const Contact = () => {
                         <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                           CORREO ELECTRÓNICO
                          </h2>
-                         <a className="text-indigo-400 leading-relaxed">
+                         <a href="mailto:francobogadoda@gmail.com" className="text-indigo-400 leading-relaxed">
                           francobogadoda@gmail.com
                          </a>
                         <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
                          NÚMERO DE TELÉFONO
                         </h2>
                         <p className="leading-relaxed">
-                         +54 9 3764847742
+                         <a href="tel:+5493764847742">+54 9 3764847742</a>
                         </p>
                       </div>
                     </div>

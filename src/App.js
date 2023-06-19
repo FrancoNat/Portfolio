@@ -1,6 +1,6 @@
 import './App.css';
 import './index.css'
-import { Navbar, About, Projects, Skills, Testimonials, Contact } from './Componentes/index'
+import { Navbar, About, Projects, Skills, Contact } from './Componentes/index'
 
 function App() {
   return (
@@ -9,10 +9,10 @@ function App() {
       <About />
       <Projects />
       <Skills />
-      <Testimonials />
       <Contact />
     </main>
   );
 }
 
 export default App;
+     
