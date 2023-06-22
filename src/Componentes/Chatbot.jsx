@@ -8,30 +8,22 @@ const Chatbot = () => {
   const [hasUnreadMessage, setHasUnreadMessage] = useState(false); // Cambiado a false inicialmente
 
   useEffect(() => {
-    if (isOpen) {
-      setHasUnreadMessage(false);
-    } else if (messages.length > 0) {
-      setHasUnreadMessage(true);
-    }
-  }, [isOpen, messages]);
+    const handleBotResponse = () => {
+      const botMessages = [
+        {
+          content: '¡Hola! ¡Gracias por visitar mi portfolio!, ¿qué te gustaría ver?',
+          isUser: false,
+        },
+      ];
 
-  useEffect(() => {
+      setMessages([...messages, ...botMessages]);
+      setHasUnreadMessage(true); // Agregado para establecer como no leído cuando llega un nuevo mensaje
+    };
+
     if (isOpen && messages.length === 0) {
       handleBotResponse();
     }
-  }, [isOpen]);
-
-  const handleBotResponse = () => {
-    const botMessages = [
-      {
-        content: '¡Hola! ¡Gracias por visitar mi portfolio!, ¿qué te gustaría ver?',
-        isUser: false,
-      },
-    ];
-
-    setMessages([...messages, ...botMessages]);
-    setHasUnreadMessage(true); // Agregado para establecer como no leído cuando llega un nuevo mensaje
-  };
+  }, [isOpen, messages]); // Agregadas las dependencias 'handleBotResponse', 'messages.length'
 
   const handleToggleChatbot = () => {
     setIsOpen(!isOpen);
@@ -150,6 +142,7 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
 
 
 
