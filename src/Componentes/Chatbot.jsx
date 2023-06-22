@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import robotIcon from '../assets/robot2.webp'; // Ruta a la imagen del robot
+import robotIcon from '../assets/robot2.webp';
 import cv from '../assets/CV .pdf';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [hasUnreadMessage, setHasUnreadMessage] = useState(false); // Cambiado a false inicialmente
+  const [hasUnreadMessage, setHasUnreadMessage] = useState(false);
 
   useEffect(() => {
     const handleBotResponse = () => {
@@ -17,17 +17,29 @@ const Chatbot = () => {
       ];
 
       setMessages([...messages, ...botMessages]);
-      setHasUnreadMessage(true); // Agregado para establecer como no leído cuando llega un nuevo mensaje
+      setHasUnreadMessage(true);
     };
 
     if (isOpen && messages.length === 0) {
       handleBotResponse();
     }
-  }, [isOpen, messages]); // Agregadas las dependencias 'handleBotResponse', 'messages.length'
+  }, [isOpen, messages]);
+
+  useEffect(() => {
+    const handlePageLoad = () => {
+      setHasUnreadMessage(true);
+    };
+
+    handlePageLoad();
+
+    return () => {
+      setHasUnreadMessage(false);
+    };
+  }, []);
 
   const handleToggleChatbot = () => {
     setIsOpen(!isOpen);
-    setHasUnreadMessage(false); // Agregado para marcar como leído cuando se abre el chatbot
+    setHasUnreadMessage(false);
   };
 
   const handleOpenChatbot = () => {
@@ -52,7 +64,7 @@ const Chatbot = () => {
       {!isOpen && (
         <div
           className={`chatbot-toggle rounded-full w-12 h-12 flex items-center justify-center bg-blue-500 text-white cursor-pointer relative ${
-            hasUnreadMessage ? 'has-unread-message' : ''
+            hasUnreadMessage ? 'has-unread-message bg-red-500' : ''
           }`}
           onClick={handleOpenChatbot}
         >
