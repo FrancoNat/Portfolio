@@ -1,6 +1,11 @@
 import './App.css';
 import './index.css'
-import { Navbar, About, Projects, Skills, Contact } from './Componentes/index'
+import { Navbar, About, Projects, Skills, Contact, ChatBot } from './Componentes/index'
+// import { Chatbot } from 'react-chatbot-kit';
+// import config from './chatbotConfig';
+// import MessageParser from './chatbot/MessageParser';
+// import ActionProvider from './chatbot/ActionProvider';
+
 
 function App() {
   return (
@@ -10,6 +15,7 @@ function App() {
       <Projects />
       <Skills />
       <Contact />
+      <ChatBot />
     </main>
   );
 }
