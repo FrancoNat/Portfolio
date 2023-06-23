@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import robotIcon from '../assets/robot2.webp';
+import robotIcon from '../assets/robot3.webp';
 import cv from '../assets/CV .pdf';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [hasUnreadMessage, setHasUnreadMessage] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleBotResponse = () => {
@@ -60,21 +61,23 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="chatbot-container fixed bottom-4 right-4">
+    <div className="fixed bottom-4 right-4">
       {!isOpen && (
         <div
-          className={`chatbot-toggle rounded-full w-12 h-12 flex items-center justify-center bg-blue-500 text-white cursor-pointer relative ${
-            hasUnreadMessage ? 'has-unread-message bg-red-500' : ''
-          }`}
+          className={`w-14 h-14 flex items-center justify-center rounded-full bg-blue-500 text-white cursor-pointer relative ${
+            hasUnreadMessage ? 'bg-red-500' : ''
+          } ${isHovered ? 'scale-110' : ''}`}
           onClick={handleOpenChatbot}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          {hasUnreadMessage && <div className="new-message-dot bg-red-500 w-2 h-2 rounded-full absolute top-1 right-1" />}
+          {hasUnreadMessage && <div className="w-2 h-2 rounded-full bg-red-500 absolute top-1 right-1" />}
           <img src={robotIcon} alt="Robot Icon" className="robot-icon" />
         </div>
       )}
       {isOpen && (
-        <div className="chatbot-content w-64 h-96 bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="chatbot-header bg-blue-500 text-white px-4 py-2 flex items-center justify-between">
+        <div className="w-64 h-96 bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-blue-500 text-white px-4 py-2 flex items-center justify-between">
             <h3 className="text-lg font-bold">Chatbot</h3>
             <div className="close-icon">
               <span
@@ -85,7 +88,7 @@ const Chatbot = () => {
               </span>
             </div>
           </div>
-          <div className="messages-container h-80 p-4 pb-2 overflow-y-auto">
+          <div className="h-80 p-4 pb-2 overflow-y-auto">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -154,6 +157,7 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
 
 
 
