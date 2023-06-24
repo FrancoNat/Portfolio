@@ -4,9 +4,18 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Verificar campos vacíos
+    if (!name || !email || !message) {
+      setErrorMessage("Por favor, completa todos los campos");
+      return;
+    }
+
+    // Resto de la lógica para enviar el formulario
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -22,6 +31,7 @@ const Contact = () => {
         setName("");
         setEmail("");
         setMessage("");
+        setErrorMessage("");
       })
       .catch((error) => alert(error));
   };
@@ -130,6 +140,9 @@ const Contact = () => {
               value={message}
             />
           </div>
+          {errorMessage && (
+            <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
+          )}
           <button
             type="submit"
             className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
@@ -143,4 +156,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
 
