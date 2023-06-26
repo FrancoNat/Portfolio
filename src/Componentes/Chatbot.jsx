@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import robotIcon from '../assets/robot3.webp';
-import cv from '../assets/CV .pdf';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,15 +48,11 @@ const Chatbot = () => {
   };
 
   const handleLinkedInClick = () => {
-    window.open('https://www.linkedin.com/in/franco-bogado-a5b18216a/', '_blank');
+    window.open('https://www.linkedin.com/in/francobogado/', '_blank');
   };
 
   const handleGitHubClick = () => {
     window.open('https://github.com/FrancoNat', '_blank');
-  };
-
-  const handleCVClick = () => {
-    window.open(cv, '_blank');
   };
 
   return (
@@ -113,7 +108,7 @@ const Chatbot = () => {
             {messages.length > 0 && (
               <div className="message bot-message" style={{ marginBottom: '10px' }}>
                 <p className="rounded p-2 bg-gray-200 text-black">
-                  ¿Quieres visitar mi perfil de LinkedIn?
+                  ¿Querés visitar mi perfil de LinkedIn?
                   <span
                     className="message-link text-blue-500 cursor-pointer"
                     onClick={handleLinkedInClick}
@@ -130,19 +125,6 @@ const Chatbot = () => {
                   <span
                     className="message-link text-blue-500 cursor-pointer"
                     onClick={handleGitHubClick}
-                  >
-                    Haz clic aquí.
-                  </span>
-                </p>
-              </div>
-            )}
-            {messages.length > 0 && (
-              <div className="message bot-message" style={{ marginBottom: '10px' }}>
-                <p className="rounded p-2 bg-gray-200 text-black">
-                  ¿Quieres ver mi CV?
-                  <span
-                    className="message-link text-blue-500 cursor-pointer"
-                    onClick={handleCVClick}
                   >
                     Haz clic aquí.
                   </span>

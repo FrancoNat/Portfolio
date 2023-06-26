@@ -1,5 +1,6 @@
 import { ArrowRightIcon, MenuIcon, XIcon, HomeIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import curiculum from "../assets/cv francobogado.pdf"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +35,9 @@ const Navbar = () => {
               <a href="#skills" className="mr-5 hover:text-white">
                 Habilidades
               </a>
+              <a href={curiculum} className="mr-5 hover:text-white">
+                Curriculum
+              </a>
             </div>
             <div className="mt-4 md:mt-0">
               <a
@@ -52,10 +56,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
 
 
 
