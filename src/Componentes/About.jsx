@@ -10,7 +10,7 @@ const About = () => {
             ¡Hola! soy Franco Bogado, un apasionado desarrollador
             <span>   </span>
             <br className="hidden lg:inline-block" />
-            <span>  Full Stack con experiencia</span> en la creación de aplicaciones web completas.
+            <span>  Full Stack con experiencia</span> en la creación de aplicaciones completas.
           </h1>
           <p className="mb-8 leading-relaxed">
             Mi enfoque se centra en utilizar tecnologías modernas como React, Redux, Node.js y Express para construir interfaces atractivas y dinámicas. Tengo un sólido conocimiento de HTML, JavaScript y CSS, lo que me permite dar vida a diseños elegantes y responsivos. Además, cuento con experiencia en el manejo de APIs externas, lo que me permite integrar servicios y datos de terceros de manera efectiva en mis proyectos. También poseo habilidades en el diseño de bases de datos utilizando PostgreSQL y en el desarrollo de API robustas y seguras. Mi objetivo es utilizar mis habilidades técnicas y mi capacidad de resolución de problemas para crear soluciones escalables y eficientes. Siempre estoy en busca de nuevos desafíos y oportunidades de aprendizaje para mantenerme actualizado en las últimas tendencias y mejores prácticas del desarrollo web. Estoy entusiasmado por formar parte de proyectos innovadores y colaborar en equipos multidisciplinarios para brindar resultados excepcionales a los usuarios finales.
